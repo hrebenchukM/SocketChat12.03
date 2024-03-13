@@ -207,9 +207,8 @@ BOOL CALLBACK ServerDlgProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lPara
 
            
             SendMessageA(hList, LB_ADDSTRING, 0, (LPARAM)receiveMessage);
-            //≈сли есть сообщение "end", завершаем работу
+
             if (strcmp(receiveMessage, "end") == 0) {
-                server.CloseConnection();
                 EndDialog(hwnd, 0);
             }
             break;

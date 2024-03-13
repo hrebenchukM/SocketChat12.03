@@ -169,7 +169,9 @@ BOOL CALLBACK ClientDlgProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lPara
 			client.SendData(sendMessage);
 			
 			SendMessageA(hList, LB_ADDSTRING, 0, (LPARAM)sendMessage);
-			if (strcmp(sendMessage, "end") == 0) {
+			//≈сли есть сообщение "end", завершаем работу
+			if (strcmp(receiveMessage, "end") == 0 ||
+				strcmp(sendMessage, "end") == 0){
 				client.CloseConnection();
 				EndDialog(hwnd, 0);
 			}
